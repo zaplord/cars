@@ -3,525 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autohistory - Automotive Industry</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            color: #f8f8f8;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-        
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            position: relative;
-            border-bottom: 2px solid #ff9800;
-        }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        
-        .logo {
-            width: 80px;
-            height: 80px;
-            animation: rotate 15s linear infinite;
-        }
-        
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        h1 {
-            font-size: 2.8rem;
-            text-shadow: 2px 2px 8px rgba(255, 152, 0, 0.7);
-            color: #fff;
-        }
-        
-        .topnav {
-            background: linear-gradient(90deg, #d35400, #e67e22, #f39c12);
-            padding: 15px 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .topnav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            gap: 40px;
-        }
-        
-        .topnav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            padding: 10px 20px;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .topnav a:hover {
-            background: rgba(0, 0, 0, 0.2);
-            transform: translateY(-3px);
-        }
-        
-        .topnav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            width: 0;
-            height: 3px;
-            background: white;
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-        
-        .topnav a:hover::after {
-            width: 80%;
-        }
-        
-        .hero {
-            text-align: center;
-            padding: 60px 20px;
-            background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') no-repeat center center/cover;
-            position: relative;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-        }
-        
-        .hero-content {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #ff9800;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-        
-        .search-container {
-            margin: 30px auto;
-            max-width: 600px;
-            padding: 0 20px;
-        }
-        
-        .search-box {
-            display: flex;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            overflow: hidden;
-            border: 2px solid #ff9800;
-        }
-        
-        .search-box input {
-            flex: 1;
-            padding: 15px 20px;
-            border: none;
-            background: transparent;
-            color: white;
-            font-size: 1.1rem;
-            outline: none;
-        }
-        
-        .search-box button {
-            background: #ff9800;
-            border: none;
-            padding: 15px 25px;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .search-box button:hover {
-            background: #e68900;
-        }
-        
-        .preview {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 40px 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .brand-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: 1px solid rgba(255, 152, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .brand-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            border-color: #ff9800;
-            background: rgba(255, 152, 0, 0.1);
-        }
-        
-        .brand-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #ff9800, #ff4800);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-        
-        .brand-card:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .brand-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #ff9800;
-        }
-        
-        .brand-card p {
-            color: #ccc;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-        
-        .brand-image {
-            width: 100%;
-            height: 120px;
-            object-fit: contain;
-            margin-bottom: 15px;
-            filter: grayscale(0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .brand-card:hover .brand-image {
-            filter: grayscale(0);
-            transform: scale(1.05);
-        }
-        
-        .newsletter {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 60px 20px;
-            text-align: center;
-            margin: 40px 0;
-        }
-        
-        .newsletter h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: #ff9800;
-        }
-        
-        .newsletter p {
-            max-width: 600px;
-            margin: 0 auto 30px;
-            line-height: 1.6;
-        }
-        
-        .newsletter-form {
-            display: flex;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        
-        .newsletter-form input {
-            flex: 1;
-            padding: 15px;
-            border: none;
-            border-radius: 50px 0 0 50px;
-            outline: none;
-            font-size: 1rem;
-        }
-        
-        .newsletter-form button {
-            background: #ff9800;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 0 50px 50px 0;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        
-        .newsletter-form button:hover {
-            background: #e68900;
-        }
-        
-        footer {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 40px 20px;
-            text-align: center;
-            border-top: 2px solid #ff9800;
-        }
-        
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .social-icons a {
-            color: white;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-        
-        .social-icons a:hover {
-            color: #ff9800;
-            transform: translateY(-5px);
-        }
-        
-        @media (max-width: 768px) {
-            .topnav ul {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-            
-            .preview {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            }
-            
-            .hero h2 {
-                font-size: 2.2rem;
-            }
-            
-            .newsletter-form {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .newsletter-form input,
-            .newsletter-form button {
-                border-radius: 50px;
-                width: 100%;
-            }
-        }
-    </style>
+    <title>Autohistory - Automotive Industry Portal</title>
 </head>
 <body>
     <header>
-        <div class="logo-container">
-            <img class="logo" src="https://cdn-icons-png.flaticon.com/512/745/745132.png" alt="Automotive Logo">
-            <h1>AutoHistory</h1>
-        </div>
+        <img src="https://cdn-icons-png.flaticon.com/512/745/745132.png" alt="Autohistory Logo">
+        <h1>Autohistory</h1>
     </header>
 
-    <div class="topnav">
+    <nav>
         <ul>
-            <li><a class="home" href="./index.html"><i class="fas fa-home"></i> Home</a></li>
-            <li><a class="about" href="./about.html"><i class="fas fa-info-circle"></i> About</a></li>
-            <li><a class="carstopick" href="./cars.html"><i class="fas fa-car"></i> Cars</a></li>
-            <li><a href="#"><i class="fas fa-newspaper"></i> News</a></li>
-            <li><a href="#"><i class="fas fa-phone"></i> Contact</a></li>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About This Page</a></li>
+            <li><a href="./cars.html">Cars</a></li>
+            <li><a href="./news.html">Automotive News</a></li>
+            <li><a href="./contact.html">Contact Us</a></li>
         </ul>
-    </div>
+    </nav>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Explore Automotive Excellence</h2>
-            <p>Discover the history, innovation, and passion behind the world's most iconic automotive brands. From classic beauties to modern marvels.</p>
-        </div>
-    </section>
+    <main>
+        <section>
+            <h2>Explore the World of Automotive Excellence</h2>
+            <p>Discover the history, innovation, and engineering marvels from the world's most renowned automotive manufacturers.</p>
+        </section>
 
-    <div class="search-container">
-        <div class="search-box">
-            <input type="text" placeholder="Search for car brands, models, and more...">
-            <button><i class="fas fa-search"></i> Search</button>
-        </div>
-    </div>
+        <section>
+            <h2>Featured Automotive Brands</h2>
+            <ul>
+                <li>
+                    <h3>BMW</h3>
+                    <p>German luxury automaker known for performance and innovation</p>
+                </li>
+                <li>
+                    <h3>Mercedes-Benz</h3>
+                    <p>Pioneer of automotive engineering and luxury vehicles</p>
+                </li>
+                <li>
+                    <h3>Volkswagen</h3>
+                    <p>World's largest automaker by worldwide sales in 2016 and 2017</p>
+                </li>
+                <li>
+                    <h3>Porsche</h3>
+                    <p>German specialty automobile manufacturer specializing in high-performance sports cars</p>
+                </li>
+                <li>
+                    <h3>Audi</h3>
+                    <p>Luxury vehicle brand emphasizing technology and progressive design</p>
+                </li>
+                <li>
+                    <h3>Ferrari</h3>
+                    <p>Italian luxury sports car manufacturer based in Maranello</p>
+                </li>
+                <li>
+                    <h3>Lamborghini</h3>
+                    <p>Italian brand known for exotic sports cars and SUVs</p>
+                </li>
+                <li>
+                    <h3>McLaren</h3>
+                    <p>British automotive manufacturer of high-performance vehicles</p>
+                </li>
+                <li>
+                    <h3>Pagani</h3>
+                    <p>Italian manufacturer of hypercars and carbon fiber components</p>
+                </li>
+                <li>
+                    <h3>Aston Martin</h3>
+                    <p>British manufacturer of luxury sports cars and grand tourers</p>
+                </li>
+                <li>
+                    <h3>Maserati</h3>
+                    <p>Italian luxury vehicle manufacturer established in 1914</p>
+                </li>
+                <li>
+                    <h3>Bentley</h3>
+                    <p>British manufacturer and marketer of luxury cars and SUVs</p>
+                </li>
+                <li>
+                    <h3>Alfa Romeo</h3>
+                    <p>Italian luxury car manufacturer known for sporty vehicles</p>
+                </li>
+                <li>
+                    <h3>Rolls Royce</h3>
+                    <p>British luxury car maker known for exceptional craftsmanship</p>
+                </li>
+                <li>
+                    <h3>Koenigsegg</h3>
+                    <p>Swedish manufacturer of high-performance sports cars</p>
+                </li>
+                <li>
+                    <h3>Maybach</h3>
+                    <p>German luxury car brand now owned by Mercedes-Benz</p>
+                </li>
+                <li>
+                    <h3>Bugatti</h3>
+                    <p>French manufacturer of high-performance automobiles</p>
+                </li>
+                <li>
+                    <h3>Honda</h3>
+                    <p>Japanese manufacturer known for reliability and innovation</p>
+                </li>
+                <li>
+                    <h3>Ford</h3>
+                    <p>American automaker that revolutionized mass production</p>
+                </li>
+                <li>
+                    <h3>Kia</h3>
+                    <p>South Korean manufacturer known for value and quality</p>
+                </li>
+                <li>
+                    <h3>Volvo</h3>
+                    <p>Swedish manufacturer known for safety and reliability</p>
+                </li>
+                <li>
+                    <h3>Chevrolet</h3>
+                    <p>American automobile division of General Motors</p>
+                </li>
+                <li>
+                    <h3>Skoda</h3>
+                    <p>Czech automobile manufacturer founded in 1895</p>
+                </li>
+                <li>
+                    <h3>Mazda</h3>
+                    <p>Japanese automaker known for innovative engineering</p>
+                </li>
+                <li>
+                    <h3>Jeep</h3>
+                    <p>American brand known for off-road capabilities</p>
+                </li>
+                <li>
+                    <h3>Opel</h3>
+                    <p>German automobile manufacturer now owned by Stellantis</p>
+                </li>
+                <li>
+                    <h3>Mitsubishi</h3>
+                    <p>Japanese multinational automotive manufacturer</p>
+                </li>
+                <li>
+                    <h3>Nissan</h3>
+                    <p>Japanese automaker known for innovation and reliability</p>
+                </li>
+                <li>
+                    <h3>Hyundai</h3>
+                    <p>South Korean automotive manufacturer</p>
+                </li>
+                <li>
+                    <h3>Toyota</h3>
+                    <p>World's largest automobile manufacturer by sales</p>
+                </li>
+                <li>
+                    <h3>Subaru</h3>
+                    <p>Japanese automaker known for all-wheel drive vehicles</p>
+                </li>
+                <li>
+                    <h3>Peugeot</h3>
+                    <p>French family-owned automaker dating back to 1810</p>
+                </li>
+            </ul>
+        </section>
 
-    <div class="preview">
-        <!-- Brand cards with additional information -->
-        <div class="brand-card">
-            <img class="brand-image" src="https://cdn-icons-png.flaticon.com/512/731/731962.png" alt="BMW Logo">
-            <h3>BMW</h3>
-            <p>German luxury vehicle manufacturer known for performance and luxury sedans, SUVs, and sports cars.</p>
-        </div>
-        
-        <div class="brand-card">
-            <img class="brand-image" src="https://cdn-icons-png.flaticon.com/512/731/731985.png" alt="Mercedes Logo">
-            <h3>Mercedes-Benz</h3>
-            <p>Largest seller of premium passenger vehicles, delivering luxury, comfort, and innovation.</p>
-        </div>
-        
-        <div class="brand-card">
-            <img class="brand-image" src="https://cdn-icons-png.flaticon.com/512/825/825462.png" alt="Audi Logo">
-            <h3>Audi</h3>
-            <p>German automobile manufacturer that designs, engineers, and distributes luxury vehicles.</p>
-        </div>
-        
-        <div class="brand-card">
-            <img class="brand-image" src="https://cdn-icons-png.flaticon.com/512/825/825470.png" alt="Porsche Logo">
-            <h3>Porsche</h3>
-            <p>German automobile manufacturer specializing in high-performance sports cars, SUVs and sedans.</p>
-        </div>
-        
-        <div class="brand-card">
-            <img class="brand-image" src="https://cdn-icons-png.flaticon.com/512/5977/5977596.png" alt="Ferrari Logo">
-            <h3>Ferrari</h3>
-            <p>Italian luxury sports car manufacturer based in Maranello, founded by Enzo Ferrari in 1939.</p>
-        </div>
-        
-        <div class="brand-card">
-            <img class="brand-image" src="https://cdn-icons-png.flaticon.com/512/5977/5977603.png" alt="Lamborghini Logo">
-            <h3>Lamborghini</h3>
-            <p>Italian brand and manufacturer of luxury sports cars and SUVs based in Sant'Agata Bolognese.</p>
-        </div>
-        
-        <div class="brand-card">
-            <img class="brand-image" src="https://cdn-icons-png.flaticon.com/512/5977/5977580.png" alt="Ford Logo">
-            <h3>Ford</h3>
-            <p>American multinational automobile manufacturer headquartered in Dearborn, Michigan.</p>
-        </div>
-        
-        <div class="brand-card">
-            <img class="brand-image" src="https://cdn-icons-png.flaticon.com/512/5977/5977592.png" alt="Toyota Logo">
-            <h3>Toyota</h3>
-            <p>Japanese multinational automotive manufacturer headquartered in Toyota City, Aichi, Japan.</p>
-        </div>
-    </div>
-
-    <section class="newsletter">
-        <h2>Stay Updated with AutoHistory</h2>
-        <p>Subscribe to our newsletter to receive the latest news, updates, and exclusive content about the automotive industry.</p>
-        <form class="newsletter-form">
-            <input type="email" placeholder="Enter your email address">
-            <button type="submit">Subscribe</button>
-        </form>
-    </section>
+        <section>
+            <h2>What You'll Discover</h2>
+            <ul>
+                <li>Historical milestones of automotive brands</li>
+                <li>Technical specifications of iconic models</li>
+                <li>Innovations that shaped the industry</li>
+                <li>Design evolution through the decades</li>
+            </ul>
+        </section>
+    </main>
 
     <footer>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-        </div>
-        <p>&copy; 2023 AutoHistory - Automotive Industry Portal. All rights reserved.</p>
+        <p>&copy; 2023 Autohistory - Automotive Industry Portal. All rights reserved.</p>
+        <p>Explore. Discover. Drive.</p>
     </footer>
-
-    <script>
-        // Simple animation for brand cards when they come into view
-        document.addEventListener('DOMContentLoaded', function() {
-            const brandCards = document.querySelectorAll('.brand-card');
-            
-            // Intersection Observer for scroll animations
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            // Set initial state and observe
-            brandCards.forEach(card => {
-                card.style.opacity = 0;
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                observer.observe(card);
-            });
-            
-            // Search functionality
-            const searchBox = document.querySelector('.search-box input');
-            const searchButton = document.querySelector('.search-box button');
-            
-            searchButton.addEventListener('click', function() {
-                const searchTerm = searchBox.value.toLowerCase();
-                const brands = document.querySelectorAll('.brand-card');
-                
-                brands.forEach(brand => {
-                    const brandName = brand.querySelector('h3').textContent.toLowerCase();
-                    if (brandName.includes(searchTerm)) {
-                        brand.style.display = 'block';
-                    } else {
-                        brand.style.display = 'none';
-                    }
-                });
-            });
-            
-            // Allow pressing Enter to search
-            searchBox.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    searchButton.click();
-                }
-            });
-        });
-    </script>
 </body>
-</html>        <div>Pagani</div>
-        <div class="astonp">Aston Martin</div>
-        <div>Maserati</div>
-        <div>Bently</div>
-        <div class="alfop">Alfo Romero</div>
-        <div>Rolls Royce</div>
-        <div>Koenigsegg</div>
-        <div>Maybach</div>
-        <div>Bagatti</div>
-        <div>Honda</div>
-        <div>Ford</div>
-        <div>Kia</div>
-        <div>Volvo</div>
-        <div>Chevrolet</div>
-        <div>Skoda</div>    
-        <div>Mazda</div>
-        <div>Jeep</div>
-        <div>Opel</div>
-        <div>Mitsubishi</div>
-        <div>Nissan</div>
-        <div>Hyundai</div>
-        <div>Toyota</div>
-        <div>Subaru</div>
-        <div>Peugeot</div>
-    </div>
-    
-</body>
-    </html>
+</html>
