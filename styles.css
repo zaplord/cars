@@ -23,6 +23,7 @@ margin: auto;
 text-align: center;
 padding-right: 55px;} 
 
+
 .topnav li {
     display: inline-block;
 padding: 10px;
@@ -51,7 +52,7 @@ font-size: 20px;
     text-decoration: underline;
  }
 
-/* Creates a grid and the amount of them also centers the grid */
+/* Creates a grid and the amount of them also centers the grid 
 .preview {
 display: grid;
 grid-template-rows: 40px 40px 40px 40px 40px  ;
@@ -59,6 +60,11 @@ grid-template-columns: 85px 85px 85px 85px 85px 85px 85px 85px 85px 85px 85px 85
 row-gap: 2px;
 margin: auto;
 padding: 20px;
+}
+*/
+.head2 {
+    
+  text-align: center;
 }
 
 /* making the grid visible with bars and gives space between each grid other */
@@ -76,6 +82,28 @@ line-height: 0.8;
 
 /* This here is to make brands with double words be more in center and have a nicer space between them */
 
+.container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);}
+
+             .brands {
+            display: flex;
+            background: #2c3e50;
+        }
+        .brand-link {
+            flex: 1;
+            padding: 5px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;}
+            .countrybrand {color: rgb(0, 0, 0);
+            font-weight: bold;}
+
 .preview .mercp {
     line-height: 0.9;
 padding-top: 5px;}
@@ -87,4 +115,3 @@ padding-top: 5px;}
 .preview .alfop {
     line-height: 0.9;
 padding-top: 5px;}
-
