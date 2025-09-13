@@ -39,17 +39,17 @@ font-size: 20px;
 .topnav li a:visited {
     color: rgb(0, 0, 0);
     background-color: transparent;
-    text-decoration: under;
+    text-decoration: none;
  }
  .topnav li a:hover {
     color: rgb(255, 0, 128);
     background-color: transparent;
-    text-decoration: underline;
+    text-decoration: none;
  }
  .topnav li a:active {
     color: rgb(6, 30, 109);
     background-color: transparent;
-    text-decoration: underline;
+    text-decoration: none;
  }
 
 /* Creates a grid and the amount of them also centers the grid 
