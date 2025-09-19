@@ -110,11 +110,9 @@ font-size: 20px;
 
 .copyright {text-align: center;
 
-<<<<<<< HEAD
+
 background-image: linear-gradient(90deg, rgba(19, 19, 19, 1),white,  rgba(19, 19, 19, 1 ));}
-=======
-background-image: linear-gradient(90deg, rgba(19, 19, 19, 1),white,  rgba(19, 19, 19, 1));}
->>>>>>> a00801e882b41dacf28cfd1673c90fbf0885f639
+
 /* This here is to make brands with double words be more in center and have a nicer space between them */
 .discovery-list {list-style-type: none;}
 .container {
