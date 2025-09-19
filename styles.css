@@ -1,24 +1,45 @@
-body {background-color: rgb(226, 219, 228); 
+body {
+    font-family:sans-serif;
+
+ 
 }
+
 /* Here I want to make this image small and round like a logo for this website */
 img { display: block ;
      padding: 0;
     margin: auto;
      width: 50px;
-height: auto;}
+height: auto;
+ }
 
+details > summary {
+  display: block;
+}
 /* here is the header that is colored and aligned to the center */
 
+.modal:target {display: block;}
+
+
+.bgcolor {background-image: linear-gradient(90deg, rgba(19, 19, 19, 0.9), white,  rgba(19, 19, 19, 0.9));
+border-radius: 10px;
+}
+.bgcolor h2, p {padding:5px;
+}
+.head2padding {margin-left: 750px;
+margin-right: 750px;
+}
 h1 {margin: auto;
     display:block;
-    color: rgba(54, 26, 100, 0.973);
+    color: rgba(11, 0, 27, 0.973);
     margin-inline: 650px;
-    background-image: linear-gradient(90deg, rgba(226, 219, 228, 0.9), rgb(102, 89, 226),  rgba(226, 219, 228, 0.9));
+    background-image: linear-gradient(90deg, rgba(19, 19, 19, 0.9), rgba(108, 44, 133, 0.911),  rgba(19, 19, 19, 0.9));
     text-align: center;}
 
 /* topnav is a navigation which is still unfinised, I want to make the cars nav be like a slide and there you can choose what car you want to see */
+.truecopyright {text-align: left;
+background-color: white;}
 
-.topnav {background-image: linear-gradient(90deg, rgba(226, 219, 228, 0.9), rgba(102, 89, 226, 0.9 ), rgba(226, 219, 228, 0.9));
+.topnav {background-image: linear-gradient(90deg, rgba(19, 19, 19, 0.9), rgba(108, 44, 133, 0.911), rgba(19, 19, 19, 0.9));
 margin: auto;
 text-align: center;
 padding-right: 55px;} 
@@ -32,56 +53,63 @@ font-size: 20px;
 
 /* here is what the links look like when you press them */
 .topnav li a:link {
-   color:  rgba(54, 26, 100, 0.973);
+   color:  rgb(195, 0, 255);
    background-color: transparent;
    text-decoration: none;
 }
+
+
+ 
 .topnav li a:visited {
     color: rgb(0, 0, 0);
     background-color: transparent;
     text-decoration: none;
  }
  .topnav li a:hover {
-    color: rgb(255, 0, 128);
+    color: rgb(132, 0, 255);
     background-color: transparent;
     text-decoration: none;
  }
- .topnav li a:active {
-    color: rgb(6, 30, 109);
+ .nav-link:active {
+    color: rgb(140, 0, 255);
     background-color: transparent;
     text-decoration: none;
+    font-weight: normal;
  }
 
-/* Creates a grid and the amount of them also centers the grid 
-.preview {
-display: grid;
-grid-template-rows: 40px 40px 40px 40px 40px  ;
-grid-template-columns: 85px 85px 85px 85px 85px 85px 85px 85px 85px 85px 85px 85px 85px 85px 85px 85px 85px 85px 85px 85px 85px 85px;
-row-gap: 2px;
-margin: auto;
-padding: 20px;
+.fatbut{
+    font-size: 20px;
+    padding: 5px;
+    margin: 0;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
-*/
-.head2 {
-    
+.fakebutton {
+    display: inline-block;
+    padding: 2px 6px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.973);
+    background-color: #312553;
+    border: none;
+    border-radius: 3px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.head2 { padding: auto;
+   background-image: linear-gradient(90deg, rgba(19, 19, 19, 0.9), white,  rgba(19, 19, 19, 0.9));
   text-align: center;
+  border-radius: 10px;
 }
 
-/* making the grid visible with bars and gives space between each grid other */
-.preview > div {background-color:  rgb(53, 52, 58),;
-padding: 10px;
-padding-top: auto;
-padding-left: 5px;
-margin-bottom: 5px;
-border: 2px solid black;
-text-align: center;
-font-size: 13px;
-font-family: Georgia, 'Times New Roman', Times, serif;
-line-height: 0.8;
-}
 
+.copyright {text-align: center;
+
+background-image: linear-gradient(90deg, rgba(19, 19, 19, 0.9),white,  rgba(19, 19, 19, 0.9));}
 /* This here is to make brands with double words be more in center and have a nicer space between them */
-
+.discovery-list {list-style-type: none;}
 .container {
             max-width: 800px;
             margin: 0 auto;
@@ -115,3 +143,55 @@ padding-top: 5px;}
 .preview .alfop {
     line-height: 0.9;
 padding-top: 5px;}
+
+
+
+ .model-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .model-card:hover {
+            background-color: #f5f5f5;
+        }
+
+         .model-details {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+.modal:target {
+  display: block;
+}
+.modal-content {
+  background: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%; max-width: 600px;
+  position: relative;
+}
+.close {
+  position: absolute;
+  right: 15px; top: 10px;
+  font-size: 28px;
+  text-decoration: none;
+  color: #666;
+}
+.close:hover {
+  color: #000;
+}
