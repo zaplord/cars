@@ -20,7 +20,7 @@ details > summary {
 .modal:target {display: block;}
 
 
-.bgcolor {background-image: linear-gradient(90deg, rgba(19, 19, 19, 0.9), white,  rgba(19, 19, 19, 0.9));
+.bgcolor {background-image: linear-gradient(90deg, rgba(255, 255, 255, 1), rgb(0, 0, 0),  rgba(19, 19, 19, 1));
 border-radius: 10px;
 }
 .bgcolor h2, p {padding:5px;
@@ -30,16 +30,16 @@ margin-right: 750px;
 }
 h1 {margin: auto;
     display:block;
-    color: rgba(11, 0, 27, 0.973);
+    color: rgb(255, 255, 255);
     margin-inline: 650px;
-    background-image: linear-gradient(90deg, rgba(19, 19, 19, 0.9), rgba(108, 44, 133, 0.911),  rgba(19, 19, 19, 0.9));
+    background-color: rgb(59, 2, 92);
     text-align: center;}
 
 /* topnav is a navigation which is still unfinised, I want to make the cars nav be like a slide and there you can choose what car you want to see */
 .truecopyright {text-align: left;
 background-color: white;}
 
-.topnav {background-image: linear-gradient(90deg, rgba(19, 19, 19, 0.9), rgba(108, 44, 133, 0.911), rgba(19, 19, 19, 0.9));
+.topnav {background-image: linear-gradient(90deg, rgba(19, 19, 19, 1), rgba(108, 44, 133, 1), rgba(19, 19, 19, 1));
 margin: auto;
 text-align: center;
 padding-right: 55px;} 
@@ -99,7 +99,7 @@ font-size: 20px;
     cursor: pointer;
 }
 .head2 { padding: auto;
-   background-image: linear-gradient(90deg, rgba(19, 19, 19, 0.9), white,  rgba(19, 19, 19, 0.9));
+   background-image: linear-gradient(90deg, rgba(19, 19, 19, 1), white,  rgba(19, 19, 19, 1));
   text-align: center;
   border-radius: 10px;
 }
@@ -107,7 +107,7 @@ font-size: 20px;
 
 .copyright {text-align: center;
 
-background-image: linear-gradient(90deg, rgba(19, 19, 19, 0.9),white,  rgba(19, 19, 19, 0.9));}
+background-image: linear-gradient(90deg, rgba(19, 19, 19, 1),white,  rgba(19, 19, 19, 1 ));}
 /* This here is to make brands with double words be more in center and have a nicer space between them */
 .discovery-list {list-style-type: none;}
 .container {
@@ -145,6 +145,16 @@ padding-top: 5px;}
 padding-top: 5px;}
 
 
+#particle-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  display: block;
+  background: #222;
+}
 
  .model-card {
             border: 1px solid #ddd;

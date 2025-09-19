@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+ <canvas id="particle-bg"></canvas>
     <header>
         <img src="https://cdn-icons-png.flaticon.com/512/745/745132.png" alt="Autohistory Logo">
         <h1>Autohistory</h1>
@@ -136,6 +136,7 @@
         <p>&copy; 2023 Autohistory - Automotive Industry Portal. All rights reserved.</p>
         <p>Explore. Discover. Drive.</p>
     </footer>
+   
 </div>
 
      <script>
@@ -151,6 +152,57 @@
             }
         }
         
+        // Particle animation: right to left
+  const canvas = document.getElementById('particle-bg');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  const particleCount = 60;
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  function randomParticle() {
+    return {
+      x: canvas.width + Math.random() * 100,
+      y: Math.random() * canvas.height,
+      r: 2 + Math.random() * 3,
+      speed: 1 + Math.random() * 2,
+      color: `rgba(255,255,255,${0.5 + Math.random() * 0.5})`
+    };
+  }
+
+  function initParticles() {
+    particles = [];
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(randomParticle());
+    }
+  }
+  initParticles();
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let p of particles) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.color;
+      ctx.fill();
+      p.x -= p.speed;
+      if (p.x < -p.r) {
+        // Respawn on right
+        p.x = canvas.width + Math.random() * 100;
+        p.y = Math.random() * canvas.height;
+        p.r = 2 + Math.random() * 3;
+        p.speed = 1 + Math.random() * 2;
+        p.color = `rgba(255,255,255,${0.5 + Math.random() * 0.5})`;
+      }
+    }
+    requestAnimationFrame(animate);
+  }
+  animate();
         
     </script>
 </body>
