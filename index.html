@@ -51,6 +51,7 @@
     <a href="#" class="close">&times;</a>
     <h2>BMW</h2>
     
+    <!--This part is the models card, meaning when the window opens you chose which card you want to see info about-->
 <div class="bmw-models">
                 <div class="model-card" onclick="showDetails('series3')">
                     <h3>3 Series</h3>
@@ -64,7 +65,7 @@
   </div>    
   
 
-
+<!-- This part is the information the model cards withhold inside of the chosen car-->
  <div id="series3-details" class="model-details">
                 <h3>BMW 3 Series</h3>
                 <p>The BMW 3 Series is a compact executive car manufactured by BMW since 1975. It's known for its sporty handling, premium interior, and efficient engines. Available in sedan, wagon, and Gran Turismo body styles.</p>
@@ -86,11 +87,7 @@
       
 </div>
 
-
-
-
-
-
+<!-- This is also a modual -->
 <a href="#audi-modal" class="modal-trigger">Audi</a>
 <div id="audi-modal" class="modal">
   <div class="modal-content">
@@ -137,7 +134,7 @@
         <p>Explore. Discover. Drive.</p>
     </footer>
 </div>
-
+ <div id="particles"></div>
      <script>
         function showDetails(modelId) {
             // Hide all model details
@@ -151,6 +148,30 @@
             }
         }
         
+         const container = document.getElementById('particles');
+        
+        // Create particles
+        for (let i = 0; i < 40; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            // Random size
+            const size = Math.random() * 4 + 1;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            // Random position
+            particle.style.top = `${Math.random() *100}vh`;
+            
+            // Random animation duration
+            const duration = Math.random() * 5 + 3;
+            particle.style.animationDuration = `${duration}s`;
+            
+            // Random delay
+            particle.style.animationDelay = `${Math.random() * 5}s`;
+            
+            container.appendChild(particle);
+        }
         
     </script>
 </body>
