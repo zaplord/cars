@@ -67,7 +67,7 @@ h1 {
    text-decoration: none;
 }
 
-/* this removes the underline under a link text*/
+/* here is what the links look like when you press them */
 .topnav li a:link {
   color: rgb(255, 0, 179);
   background-color: transparent;
