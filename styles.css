@@ -30,32 +30,41 @@ details > summary {
   padding:5px;
 }
 
-h1 {margin: auto;
+hr{color:rgb(0, 0, 0)}
+
+h1 {margin-top: 100px;
+  margin-bottom: 100px;
+
     display:block;
     color: rgb(255, 255, 255);
-    margin-inline: 650px;
+  
     text-align: center;}
 
 /* topnav is a navigation which is still unfinised, I want to make the cars nav be like a slide and there you can choose what car you want to see */
 .truecopyright {text-align: left;
 }
 
-.topnav { color: rgb(255, 0, 0);
-background-color: #4400ff;
-margin: auto;
+.nav-link{color: white;}
+.topnav {
+background-color: #1a0029;
+margin: -20px;
 text-align: center;
 padding-right: 55px;} 
 
 
-.topnav li { color:rgb(255, 0, 0);
+.topnav li { 
     display: inline-block;
 padding: 10px;
 font-size: 20px;
 }
+.topnav li a:hover {
+   color:  rgb(212, 0, 255);
+   background-color: transparent;
+   text-decoration: none;
+}
 
-/* here is what the links look like when you press them */
+/* this removes the underline under a link text*/
 .topnav li a:link {
-   color:  rgb(255, 0, 179);
    background-color: transparent;
    text-decoration: none;
 }
@@ -63,19 +72,17 @@ font-size: 20px;
 
  
 
- .topnav li a:hover {
-    color: rgb(255, 255, 255);
-    background-color: transparent;
+.fatbut:hover {
+    color:  rgb(212, 0, 255);
     text-decoration: none;
- }
-
+}
 .fatbut{
+  background-color: #1a0029;
     font-size: 20px;
     padding: 5px;
     margin: 0;
     text-align: center;
-    color: rgb(0, 0, 0);
-    background-color: transparent;
+    color: rgb(255, 255, 255);
     border: none;
     cursor: pointer;
 }
@@ -84,7 +91,7 @@ font-size: 20px;
     padding: 2px 6px;
     font-size: 16px;
     color: rgba(255, 255, 255, 0.973);
-    background-color: #312553;
+    background-color: #1a0029;
     border: none;
     border-radius: 3px;
     text-decoration: none;
