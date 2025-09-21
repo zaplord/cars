@@ -5,6 +5,10 @@ body {
   overflow: hidden;
   background-color: rgba(0, 0, 0, 1);
   color: white;
+    
+overflow: hidden;
+ background-color: rgba(0, 0, 0, 1);
+ color:white;
 }
 
 /* Here I want to make this image small and round like a logo for this website */
@@ -58,13 +62,14 @@ h1 {
 
 /* here is what the links look like when you press them */
 .topnav li a:link {
-  color: rgb(255, 0, 179);
-  background-color: transparent;
-  text-decoration: none;
+   color:  rgb(195, 0, 255);
+   background-color: transparent;
+   text-decoration: none;
 }
 
-.topnav li a:hover {
-  color: rgb(255, 255, 255);
+/* this removes the underline under a link text*/
+.topnav li a:link {
+  color: rgb(255, 0, 179);
   background-color: transparent;
   text-decoration: none;
 }
