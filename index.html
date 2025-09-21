@@ -3,42 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autohistory - Automotive Industry Portal</title>
+    <title>AutoStory - Automotive Industry Portal</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<nav class="topnav">
-        <ul>
-            <li><a href="./index.html" class="nav-link"><b>HOME</b></a></li>
-            <li><a href="./about.html" class="nav-link">ABOUT US</a></li>
-            <li><a href="./cars.html" class="nav-link">CARS</a></li>
-            <li><a href="./news.html" class="nav-link">AUTONEWS</a></li>
-            <li><a href="./contact.html" class="nav-link">CONTACT US</a></li>
-        </ul>
-    </nav>
-    <header>
-        <img src="https://cdn-icons-png.flaticon.com/512/745/745132.png" alt="Autohistory Logo">
-        <h1>Autohistory</h1>
-<a href="cars.html">
-    </header>
+ <canvas id="particle-bg"></canvas>
+ 
+ <header>
+    <!-- <img src="https://cdn-icons-png.flaticon.com/512/745/745132.png" alt="Autohistory Logo"> -->
 
-    
-  
-   
-   
+</header>
+<nav class="topnav">
+    <ul>
+        <li><a href="./index.html" class="nav-link"><b>HOME</b></a></li>
+        <li><a href="./about.html" class="nav-link">ABOUT ME</a></li>
+        <li><a href="./cars.html" class="nav-link">CARS</a></li>
+        <li><a href="./news.html" class="nav-link">AUTO NEWS</a></li>
+        <li><a href="./contact.html" class="nav-link">CONTACT US</a></li>
+    </ul>
+</nav>
+
+
+
+<h1>Autohistory</h1 id="main-title">
+
     <main>
        
         <section>
             <div class="bgcolor">
-            <h2>Explore the World of Automotive Excellence</h2>
+            <h2 class="h2">Explore the World of Automotive Excellence</h2>
             <p>Discover the history, innovation, and engineering marvels from the world's most renowned automotive manufacturers.</p>
             </div>
         </section>
         <section>
            
-           <div class="head2padding">
-          <h2 class="head2">Featured Automotive Brands</h1>
-            </div>
+          <div class="bgcolor">
+          <h2 class="h2">Featured Automotive Brands</h1>
+          </div>
                 <div class="container">      
                 <div class="countrybrand">
                 <div class="German">
@@ -51,7 +52,6 @@
     <a href="#" class="close">&times;</a>
     <h2>BMW</h2>
     
-    <!--This part is the models card, meaning when the window opens you chose which card you want to see info about-->
 <div class="bmw-models">
                 <div class="model-card" onclick="showDetails('series3')">
                     <h3>3 Series</h3>
@@ -65,7 +65,7 @@
   </div>    
   
 
-<!-- This part is the information the model cards withhold inside of the chosen car-->
+
  <div id="series3-details" class="model-details">
                 <h3>BMW 3 Series</h3>
                 <p>The BMW 3 Series is a compact executive car manufactured by BMW since 1975. It's known for its sporty handling, premium interior, and efficient engines. Available in sedan, wagon, and Gran Turismo body styles.</p>
@@ -87,7 +87,11 @@
       
 </div>
 
-<!-- This is also a modual -->
+
+
+
+
+
 <a href="#audi-modal" class="modal-trigger">Audi</a>
 <div id="audi-modal" class="modal">
   <div class="modal-content">
@@ -106,7 +110,7 @@
   </div>
 </div>
                   
-        </div>
+                    </div>
         
         </div>
 
@@ -117,24 +121,25 @@
             
         </section>
 <hr>
-<div class="copyright">
+<div class="bgcolor">
         <section>
-            <h2>What You'll Discover</h2>
+            <h2 class="h2">What You'll Discover</h2>
             <ul class="discovery-list">
-                <li>Historical milestones of automotive brands</li>
-                <li>Technical specifications of iconic models</li>
-                <li>Innovations that shaped the industry</li>
-                <li>Design evolution through the decades</li>
+                <li>•Historical milestones of automotive brands</li>
+                <li>•Technical specifications of iconic models</li>
+                <li>•Innovations that shaped the industry</li>
+                <li>•Design evolution through the decades</li>
             </ul>
         </section>
     </main>
-
+</div>
     <footer class="truecopyright">
         <p>&copy; 2023 Autohistory - Automotive Industry Portal. All rights reserved.</p>
         <p>Explore. Discover. Drive.</p>
     </footer>
+   
 </div>
- <div id="particles"></div>
+
      <script>
         function showDetails(modelId) {
             // Hide all model details
@@ -147,7 +152,58 @@
                 selectedDetail.style.display = 'block';
             }
         }
-    
+        
+        // Particle animation: right to left
+  const canvas = document.getElementById('particle-bg');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  const particleCount = 60;
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  function randomParticle() {
+    return {
+      x: canvas.width + Math.random() * 100,
+      y: Math.random() * canvas.height,
+      r: 2 + Math.random() * 3,
+      speed: 1 + Math.random() * 2,
+      color: `rgba(255,255,255,${0.5 + Math.random() * 0.5})`
+    };
+  }
+
+  function initParticles() {
+    particles = [];
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(randomParticle());
+    }
+  }
+  initParticles();
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let p of particles) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.color;
+      ctx.fill();
+      p.x -= p.speed;
+      if (p.x < -p.r) {
+        // Respawn on right
+        p.x = canvas.width + Math.random() * 100;
+        p.y = Math.random() * canvas.height;
+        p.r = 2 + Math.random() * 3;
+        p.speed = 1 + Math.random() * 2;
+        p.color = `rgba(255,255,255,${0.5 + Math.random() * 0.5})`;
+      }
+    }
+    requestAnimationFrame(animate);
+  }
+  animate();
         
     </script>
 </body>
