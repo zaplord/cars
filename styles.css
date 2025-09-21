@@ -22,8 +22,12 @@ img {
 }
 
 details > summary {
-  display: block;
+  display: inline-block; 
+  padding: 5px 10px;     
+
 }
+  
+
 
 /* ===========================
    2. Typography
@@ -46,11 +50,7 @@ h1 {
    =========================== */
 /* topnav is a navigation which is still unfinished, I want to make the "cars nav" like a slide and there you can choose what car you want to see */
 .topnav {
-  color: rgb(255, 0, 0);
-  background-color: #4400ff;
   margin: auto;
-  text-align: center;
-  padding-right: 55px;
 }
 
 .topnav li {
@@ -67,12 +67,39 @@ h1 {
    text-decoration: none;
 }
 
-/* here is what the links look like when you press them */
-.topnav li a:link {
-  color: rgb(255, 0, 179);
-  background-color: transparent;
-  text-decoration: none;
+.topnav li a:hover {
+  background-color: #000000; /* or any color you want on hover */
+  text-decoration: underline; /* or none if you prefer */
+  text-decoration-thickness: 3px; /* Thickness of the underline */ 
+  text-underline-offset: 5px; /* Space between text and underline */
+  opacity: 0.7;
+
 }
+
+
+.topnav ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+
+}
+/* This is to make the navigation items have a space between them */
+.topnav li {
+  margin: 0 10px;
+  padding: 10px;
+  font-size: 20px;
+}
+/* This is to make the login and register be on the right side of the navigation bar */
+.topnav li.right-nav {
+  margin-left: auto;
+  
+}
+
+
+
 
 /* ===========================
    4. Buttons
@@ -80,12 +107,14 @@ h1 {
 .fatbut {
   font-size: 20px;
   padding: 5px;
-  margin: 0;
   text-align: center;
   color: rgb(0, 0, 0);
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+.fatbut a:hover {
+  text-decoration: underline;
 }
 
 .fakebutton {
@@ -100,6 +129,14 @@ h1 {
   cursor: pointer;
 }
 
+
+.German summary:hover {
+
+  background-color: #4400ff;
+  color: #fff;
+  text-decoration: underline;
+  border-radius: 3px;
+}
 /* ===========================
    5. Copyright & Footer
    =========================== */
