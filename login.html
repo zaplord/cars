@@ -25,41 +25,48 @@
     </nav>
     <h1 id="main-title">Autohistory</h1>
 
-    <h2 class="user-greeting">Welcome User!</h2>  
-    
-    
-    <div class="modal register-modal">
-        <div class="modal-content">
-            <h2>Register</h2>
-            <form onsubmit="return fakeLogin" action="./index.html" method="post">
-                <!-- Email field -->
-                <input type="text" id="Email" name="Email" placeholder="Email"><br>
-                <!-- Username field -->
-                <br>
-                <input type="text" id="username" name="username" placeholder="Username or Email"><br>
-                <!-- Password field -->
-                <br>
-                <input type="password" id="password" name="password" placeholder="Password"><br>
-                <!-- Confirm Password field -->
-                <br>
-                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password"><br>
-                <!-- Error message for password -->
-                <p id="error-message" style="color: red; display: none;">Passwords do not match!</p><br>
-                 <!-- Submit button -->
-                <button type="submit" id="sign-up-button">Register</button>
+    <h2 class="user-greeting">Welcome back!</h2>  
+        <div class="shadow-layer"></div>
+        <div class="glitch-effect"></div>
+        <div class="scanlines"></div>
+        <div class="particles" id="particles"></div>
+        
+        
+        <div class="modal register-modal">
+            <div class="modal-content">
+                <h2>Log in</h2>
+                <form onsubmit="return fakeLogin(event)">  
+                    <!-- Username field -->
+                    <br>
+                    <input type="text" id="username" name="username" placeholder="Username or Email"><br>
+                    <!-- Password field -->
+                    <br>
+                    <input type="password" id="password" name="password" placeholder="Password"><br>
+                     <!-- Submit button -->
+               <button type="submit" id="sign-up-button">Log in</button>
                 
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
-    
-    
-    
-    <div class="shadow-layer"></div>
-    <div class="glitch-effect"></div>
-    <div class="scanlines"></div>
-    <div class="particles" id="particles"></div>
-    
-    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         <hr>
         <footer class="truecopyright">
@@ -71,6 +78,14 @@
         <!-- Particle background ALSO IS THE REASON FOR GAPS-->
             <canvas id="particle-bg"></canvas>
         
+
+
+
+
+
+
+
+
         <script>
             
             // Create particles
@@ -106,22 +121,32 @@
                 particlesContainer.appendChild(particle);
             }
         });
-        // Password validation
-        function validatePasswords() {
-            const password = document.getElementById("password").value;
-            const confirmPassword = document.getElementById("confirm-password").value;
-            const errorMessage = document.getElementById("error-message");
-            
-            if (password !== confirmPassword) {
-                errorMessage.style.display = "block";
-                return false; // Prevent form submission
-            } else {
-                errorMessage.style.display = "none";
-                return true; // Allow form submission
-            }
-        }
-
   
+
+
+        // Fake login function, only just checks if username and password are "1"
+        function fakeLogin(event) {
+            event.preventDefault(); // Prevent form submission
+
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+
+          if (username === "1" && password === "1") { 
+             setTimeout(function() {
+                window.location.href = "./index.html";
+              }, 1000); 
+              // Allow form submission 
+              
+              return true;
+            } else {
+                alert("Invalid username or password.");
+                return false; // Prevent form submission
+            }
+            
+            
+            
+            
+        }
     </script>
 </body>
 </html>
