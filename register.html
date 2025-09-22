@@ -31,7 +31,7 @@
     <div class="modal register-modal">
         <div class="modal-content">
             <h2>Register</h2>
-            <form>
+            <form onsubmit="return fakeLogin" action="./index.html" method="post">
                 <!-- Email field -->
                 <input type="text" id="Email" name="Email" placeholder="Email"><br>
                 <!-- Username field -->
@@ -40,8 +40,13 @@
                 <!-- Password field -->
                 <br>
                 <input type="password" id="password" name="password" placeholder="Password"><br>
-                <!-- Submit button -->
-                <a href="./index.html" type="submit" id="sign-up-button">Log in </a>
+                <!-- Confirm Password field -->
+                <br>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password"><br>
+                <!-- Error message for password -->
+                <p id="error-message" style="color: red; display: none;">Passwords do not match!</p><br>
+                 <!-- Submit button -->
+                <button type="submit" id="sign-up-button">Register</button>
                 
             </form>
         </div>
@@ -101,6 +106,21 @@
                 particlesContainer.appendChild(particle);
             }
         });
+        // Password validation
+        function validatePasswords() {
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirm-password").value;
+            const errorMessage = document.getElementById("error-message");
+            
+            if (password !== confirmPassword) {
+                errorMessage.style.display = "block";
+                return false; // Prevent form submission
+            } else {
+                errorMessage.style.display = "none";
+                return true; // Allow form submission
+            }
+        }
+
   
     </script>
 </body>

@@ -35,15 +35,15 @@
         <div class="modal register-modal">
             <div class="modal-content">
                 <h2>Log in</h2>
-                <form>
+                <form onsubmit="return fakeLogin(event)">  
                     <!-- Username field -->
                     <br>
                     <input type="text" id="username" name="username" placeholder="Username or Email"><br>
                     <!-- Password field -->
                     <br>
                     <input type="password" id="password" name="password" placeholder="Password"><br>
-                    <!-- Submit button -->
-                   <a href="./index.html" type="submit" id="sign-up-button">Log in </a>
+                     <!-- Submit button -->
+               <button type="submit" id="sign-up-button">Log in</button>
                 
                 </form>
             </div>
@@ -78,6 +78,14 @@
         <!-- Particle background ALSO IS THE REASON FOR GAPS-->
             <canvas id="particle-bg"></canvas>
         
+
+
+
+
+
+
+
+
         <script>
             
             // Create particles
@@ -114,6 +122,31 @@
             }
         });
   
+
+
+        // Fake login function, only just checks if username and password are "1"
+        function fakeLogin(event) {
+            event.preventDefault(); // Prevent form submission
+
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+
+          if (username === "1" && password === "1") { 
+             setTimeout(function() {
+                window.location.href = "./index.html";
+              }, 1000); 
+              // Allow form submission 
+              
+              return true;
+            } else {
+                alert("Invalid username or password.");
+                return false; // Prevent form submission
+            }
+            
+            
+            
+            
+        }
     </script>
 </body>
 </html>
