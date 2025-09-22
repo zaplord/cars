@@ -1,3 +1,4 @@
+
 body {color:rgb(255, 255, 255);
             background: linear-gradient(135deg, #0f0f1a 0%, #000000 100%);
             font-family: 'Bebas Neue', sans-serif;  
@@ -55,6 +56,17 @@ details > summary {
    2. Typography
    =========================== */
 
+   #main-title {text-align: center;
+    padding:5px;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    text-shadow: #a77373 3px 3px 3px;
+    display:block;
+    margin-top: 50px;
+    margin-bottom: 50px;}
+
+
+
 .h2, p {
   text-align: center;
   padding:5px;
@@ -70,6 +82,8 @@ h1 {margin-top: 100px;
     color: rgb(255, 255, 255);
     font-size: 75px;
     text-align: center;}
+
+
 
 /* ===========================
    3. Navigation
@@ -152,9 +166,6 @@ h1 {margin-top: 100px;
   border-radius: 3px;
 }
 
-/* ===========================
-   4. Buttons
-   =========================== */
 
 .fatbut:hover {
     color:  rgb(212, 0, 255);
@@ -350,3 +361,12 @@ h1 {margin-top: 100px;
   position: static;
   box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
+
+.user-greeting {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #ffffff; /* Pink color for greeting */
+  text-shadow: 3px 3px 5px #9c0b0b; /* Subtle shadow for better readability */
+  text-align: center;
+} 
+
