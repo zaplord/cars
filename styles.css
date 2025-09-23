@@ -1,14 +1,10 @@
 body {color:rgb(255, 255, 255);
       background: linear-gradient(135deg, #0f0f1a 0%, #000000 100%);
       font-family: 'Bebas Neue', sans-serif; 
-   
+    animation: smoothAppear 0.5s ease-out forwards;
     }
 
-html, body {
-  height: 150%;
-  margin: 0;
-  padding: 0;
-}
+
         /* Moving particles effect */
        .particles {
             position: fixed;
@@ -73,7 +69,7 @@ details > summary {
 .main-title h1 {text-shadow: #1a0029 3px 3px 3px;}
 
 
-.h21, p {
+.h21 {
   text-align: center;
   padding:5px;
 }
@@ -99,25 +95,47 @@ h1 {
    =========================== */
 /* topnav is a navigation which is still unfinished, I want to make the "cars nav" like a slide and there you can choose what car you want to see */
 
-.nav-link{color:rgb(135, 0, 245);
-font-weight: bold;
-text-shadow: #3b047a 3px 3px 3px;}
+.nav-link{color:rgb(135, 0, 245);} /* only function to make the Navigation color prettier */
 
 
 
+.topnav a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: rgb(135, 0, 245);
+    transition: all 0.4s ease; }
 
-.topnav li a:hover {
-  background-color: #000000; /* or any color you want on hover */
+    .topnav a:hover::before {
+    width: 100%;}
+
+
+.topnav a {
+    padding: 10px 0;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+
+
+.topnav a:hover {
+  background-color: #000000; 
   opacity: 0.7;
 }
 
 .topnav ul {
+  font-weight: bold;
+  text-shadow: #3b047a 3px 3px 3px;
   display: flex;
   align-items: center;
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
+
 /* This is to make the navigation items have a space between them */
 .topnav li {
   margin: 0 10px;
@@ -145,35 +163,13 @@ text-shadow: #3b047a 3px 3px 3px;}
 }
 
 /* this removes the underline under a link text*/
-.topnav li a:link {
+.topnav li a:link { 
    background-color: transparent;
-   text-decoration: none;
-
-}
+   text-decoration: none;}
 
 
-.German summary:hover {
-
-  background-color: #4400ff;
-  color: #fff;
-  border-radius: 3px;
-}
 
 
-.fatbut:hover {
-    color:  rgb(212, 0, 255);
-    text-decoration: none;
-}
-.fatbut{
-  background-color: #1a0029;
-    font-size: 20px;
-    padding: 5px;
-    margin: 0;
-    text-align: center;
-    color: rgb(255, 255, 255);
-    border: none;
-    cursor: pointer;
-}
 .fakebutton {
     display: inline-block;
     padding: 2px 6px;
@@ -185,6 +181,8 @@ text-shadow: #3b047a 3px 3px 3px;}
     text-decoration: none;
     cursor: pointer;
 }
+
+
 #sign-up-button
 {
     display: inline-block;
@@ -381,3 +379,121 @@ text-shadow: #3b047a 3px 3px 3px;}
   text-shadow: 3px 3px 5px #9c0b0b; /* Subtle shadow for better readability */
   text-align: center;
 } 
+
+.continent-selector { max-width: 100%;
+  align-items: center;
+  margin: 50px;
+            display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+           
+
+            
+} /* .continent-btn {
+    padding: 10px 5px;
+    min-height: 80px;
+    font-size: 1.1rem;
+}
+
+.continent-icon {
+    font-size: 1.5rem;
+    margin-bottom: 5px;*/
+
+
+         .continent-btn {
+            background-color: #0f003600;;
+            border: none;
+            border-radius: 15px;
+            padding: 10px 5px;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 5px rgba(111, 0, 255, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .continent-btn:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .continent-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+#REVERSE {
+  transform: scaleX(-1);
+}
+
+.Continentpadding {
+  margin-top: 30%;
+}
+
+.textleft {
+  padding-left: 20px;
+  font-size: 20px;
+  text-align: left;
+  margin-top: -10%;
+  overflow: hidden;
+  border-right: 0.1px solid rgba(111, 0, 255, 0.3);
+  white-space: nowrap;
+  letter-spacing: 2px;
+  animation: 
+    typing 2s steps(25) forwards,
+    blink-caret 0.4s step-end 3 forwards; /* Stop after 6 blinks */
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 20% }
+}
+
+@keyframes blink-caret {
+  0%, 80% { border-color: rgb(135, 0, 245); }
+  81%, 100% { border-color: transparent; } /* Hide after 80% of animation */
+}
+
+.textright {
+  font-size: 20px;
+  text-align: right; /* Align text to right */
+  margin-top: 10%;
+  padding-right: 20px;
+  display: inline-block;
+  overflow: hidden;
+  border-right: 0.1px solid rgba(111, 0, 255, 0.3); /* Keep cursor on right */
+  white-space: nowrap;
+  letter-spacing: 2px;
+  animation: 
+    typing-right 2s steps(25) forwards,
+    blink-caret .4s step-end 3 forwards;
+  position: absolute; /* or fixed/relative depending on layout */
+  right: 0; /* Position on right side */
+}
+
+/* Right-to-left typing effect */
+@keyframes typing-right {
+  from { 
+    width: 0;
+    margin-left: auto; /* Push content to right */
+  }
+  to { 
+    width: 20%;
+    margin-left: auto;
+  }
+}
+@keyframes smoothAppear { from { opacity: 0; transform: translatey(100px)}
+to { opacity: 1;
+transform: translateY(0px);
+}
+}

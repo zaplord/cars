@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoStory - Automotive Industry Portal</title>
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
 
@@ -13,7 +14,7 @@
     <nav class="topnav">
         <ul>
             <li><a href="./index.html" class="nav-link">HOME</a></li>
-            <li><a href="./about.html" class="nav-link">ABOUT ME</a></li>
+            <li><a href="./about.html" class="nav-link">ABOUT THE PROJECT</a></li>
             <li><a href="./cars.html" class="nav-link">CARS</a></li>
             <li><a href="./news.html" class="nav-link">AUTO NEWS</a></li>
             <li><a href="./contact.html" class="nav-link">CONTACT US</a></li>
@@ -24,30 +25,52 @@
 
 
     
-        
+     <main>  
         <header class="main-title">
             <!-- <img src="https://cdn-icons-png.flaticon.com/512/745/745132.png" alt="Autohistory Logo"> -->
-            <h1>AutoLegacy</h1>
+            <h1 class="logo">AutoLegacy</h1>
             <h2 class="h21">Explore the World of Automotive Excellence</h2>
             <p>Discover the history, innovation, and engineering marvels from the world's most renowned automotive manufacturers.</p>
-            
-        </header>
-<main>
+             </header>
+<div class="textleft"><p>This is the first project of ours</p></div>
 
-    <div class="container">      
-        <h2 class="h21">Featured Automotive Brands</h1>
-        <div class="countrybrand">
-<div class="German">      
-         <!-- BMW button -->
-         <details class="fatbut">
-            <summary><b>German Maker</b></summary>
-            <a href="#my-modal" class="fakebutton">Bwm</a>
-    <div id="my-modal" class="modal">
-                                        
-                    <!-- Modal opening -->
-        <div class="modal-content">
-                <a href="#" class="close">&times;</a>                 
-                <h2>BMW</h2>       
+    <div class="textright"><p>Enjoy the history lession</p></div>
+
+
+        <div class="Continentpadding">
+            <h2 class="h21">Featured Automotive Brands</h1>
+                <div class="continent-selector">
+                 <button class="continent-btn" data-continent="europe">
+                <i class="continent-icon fas fa-globe-europe"></i>
+             Europe
+            </button>
+                 <button class="continent-btn" data-continent="north-america">
+                    <i class="continent-icon fas fa-globe-americas"></i>
+                    North America
+                </button>
+                <button class="continent-btn" data-continent="asia">
+                    <i class="continent-icon fas fa-globe-asia"></i>
+                    Asia
+                </button>
+                <button class="continent-btn" data-continent="north-america">
+                    <i class="continent-icon fas fa-globe-americas"></i>
+                    South America        
+                </button>
+                <button class="continent-btn" data-continent="africa">
+                    <i class="continent-icon fas fa-globe-africa"></i>
+                    Africa
+                  <button class="continent-btn" data-continent="australia">
+                      <bdo><i class="continent-icon fas fa-globe-europe" id="REVERSE"></i> </bdo> 
+                      Australia
+            </div>
+
+</div>
+    <!-- More buttons -->
+</div>
+                
+                
+
+                <!-- BMW Modal 
                 <div class="bmw-models">
                         <div class="model-card" onclick="showDetails('series3')">
                         <h3>3 Series</h3>
@@ -77,7 +100,7 @@
                     <li>Starting price: $55,000</li>
                     <li>Fuel economy: 23-34 MPG</li>
                 </ul>
-                </div>  
+                </div>  -->
         </div>
       
         
@@ -105,10 +128,7 @@
 
 <!-- TOYOTA-->
 
-<div>
-<details class="fatbut"><summary>Japanese Maker</summary>
-    <a href="#Toyota" class="brand-link">Toyota</a>
-</div>
+
     
     
 </div>
