@@ -1,16 +1,4 @@
-   function showDetails(modelId) {
-        // Hide all model details
-        const allDetails = document.querySelectorAll('.model-details');
-        allDetails.forEach(detail => detail.style.display = 'none');
-        
-        // Show selected model details
-        const selectedDetail = document.getElementById(modelId + '-details');
-        if (selectedDetail) {
-            selectedDetail.style.display = 'block';
-        }
-    }
-    
-    
+
     
     // Create particles
     document.addEventListener('DOMContentLoaded', function() {
@@ -120,4 +108,57 @@
             
         }
 
+         // Continent selection functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const continentButtons = document.querySelectorAll('.continent-btn');
+            const countryDisplays = document.querySelectorAll('.countries-display');
+            
+            // Set Europe as default active
+            document.querySelector('[data-continent="europe"]').classList.add('active');
+            document.getElementById('europe-display').classList.add('active');
+            
+            continentButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const continent = this.getAttribute('data-continent');
+                    
+                    // Remove active class from all buttons and displays
+                    continentButtons.forEach(btn => btn.classList.remove('active'));
+                    countryDisplays.forEach(display => display.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding display
+                    this.classList.add('active');
+                    document.getElementById(`${continent}-display`).classList.add('active');
+                });
+            });
+            
+            // Add click functionality to country cards
+            const countryCards = document.querySelectorAll('.country-card');
+            countryCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const countryName = this.querySelector('.country-name').textContent;
+                   const countryCards = document.querySelectorAll('.country-card');
+countryCards.forEach(card => {
+    card.addEventListener('click', function() {
+        const countryName = this.querySelector('.country-name').textContent;
         
+        // Only keep your actual functionality
+        // countryName.style.display = 'block';
+        
+        // If you want to show country-specific content:
+        const countryId = countryName.toLowerCase().replace(/\s+/g, '-');
+        const countryContent = document.getElementById(`${countryId}-content`);
+        
+        if (countryContent) {
+            // Hide all country contents first
+            document.querySelectorAll('.country-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            // Show selected country content
+            countryContent.style.display = 'block';
+        }
+    });
+});
+                    // In a real application, this would navigate to a detailed page
+                });
+            });
+        });

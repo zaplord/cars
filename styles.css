@@ -1,7 +1,7 @@
 body {color:rgb(255, 255, 255);
       background: linear-gradient(135deg, #0f0f1a 0%, #000000 100%);
       font-family: 'Bebas Neue', sans-serif; 
-    animation: smoothAppear 0.5s ease-out forwards;
+    animation: smoothAppear 0.5s ease-in forwards;
     }
 
 
@@ -50,7 +50,7 @@ details > summary {
 
 /* here is the header that is colored and aligned to the center */
 
-.modal:target {display: block;}
+
 
 
 /* ===========================
@@ -148,19 +148,7 @@ h1 {
 }
 
 
-/* ===========================
-   4. Buttons
-   =========================== */
-.fatbut {
-  
-  font-size: 20px;
-  padding: 5px;
-  text-align: center;
-  color: rgb(0, 0, 0);
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
+
 
 /* this removes the underline under a link text*/
 .topnav li a:link { 
@@ -264,62 +252,7 @@ h1 {
    7. Cards & Details
    =========================== */
 
- .model-card {
-            border: 1px solid #ddd;
-            padding: 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-.model-card:hover {
-            background-color: #f5f5f5;
-        }
-
-.model-details {
-            display: none;
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-        }
-
-  /* ===========================
-   8. Modal
-   =========================== */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.5);
-}
-
-.modal:target {
-  display: block;
-}
-
-.modal-content {
-  background: #fff;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 8px;
-  width: 80%; max-width: 600px;
-  position: relative;
-}
-
-.close {
-  position: absolute;
-  right: 15px; top: 10px;
-  font-size: 28px;
-  text-decoration: none;
-  color: #666;
-}
-
-.close:hover {
-  color: #000;
-}
+ 
 
 .truecopyright {background-color: transparent;
   text-align: left;
@@ -336,41 +269,7 @@ h1 {
    =========================== */
 
    /* This styles the register page specifically */
-   .register-modal {
-  display: block;
-  position: static;
-  background: none;
-  width: 100%;
-  height: auto;
-  z-index: auto;
-  margin: 40px auto;
-}
-
-
-.register-modal .modal-content {
-  background: #1a0029; /* dark background */
-  color: #fff;         /* white text inside modal */
-}
-
-.register-modal input[type="text"],
-.register-modal input[type="email"],
-.register-modal input[type="password"] {
-  color: #fff;                /* white text */
-  background: #222;           /* dark input background */
-  border: 2px solid #4400ff;
-  padding: 10px;
-  border-radius: 4px;
-  font-size: 18px;
-}
-
-.register-modal input::placeholder {
-  color: rgba(255,255,255,0.7); /* light gray placeholder */
-}
-.register-modal .modal-content {
-  margin: 0 auto;
-  position: static;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-}
+   
 
 .user-greeting {
   font-size: 30px;
@@ -389,15 +288,7 @@ h1 {
            
 
             
-} /* .continent-btn {
-    padding: 10px 5px;
-    min-height: 80px;
-    font-size: 1.1rem;
-}
-
-.continent-icon {
-    font-size: 1.5rem;
-    margin-bottom: 5px;*/
+} 
 
 
          .continent-btn {
@@ -437,22 +328,25 @@ h1 {
 }
 
 .Continentpadding {
-  margin-top: 30%;
+  margin-top: 500px;
 }
 
-.textleft {
-  padding-left: 20px;
+.texts {
   font-size: 20px;
-  text-align: left;
   margin-top: -10%;
   overflow: hidden;
   border-right: 0.1px solid rgba(111, 0, 255, 0.3);
   white-space: nowrap;
   letter-spacing: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
   animation: 
     typing 2s steps(25) forwards,
     blink-caret 0.4s step-end 3 forwards; /* Stop after 6 blinks */
 }
+
 
 @keyframes typing {
   from { width: 0 }
@@ -464,36 +358,86 @@ h1 {
   81%, 100% { border-color: transparent; } /* Hide after 80% of animation */
 }
 
-.textright {
-  font-size: 20px;
-  text-align: right; /* Align text to right */
-  margin-top: 10%;
-  padding-right: 20px;
-  display: inline-block;
-  overflow: hidden;
-  border-right: 0.1px solid rgba(111, 0, 255, 0.3); /* Keep cursor on right */
-  white-space: nowrap;
-  letter-spacing: 2px;
-  animation: 
-    typing-right 2s steps(25) forwards,
-    blink-caret .4s step-end 3 forwards;
-  position: absolute; /* or fixed/relative depending on layout */
-  right: 0; /* Position on right side */
-}
 
-/* Right-to-left typing effect */
-@keyframes typing-right {
-  from { 
-    width: 0;
-    margin-left: auto; /* Push content to right */
-  }
-  to { 
-    width: 20%;
-    margin-left: auto;
-  }
-}
 @keyframes smoothAppear { from { opacity: 0; transform: translatey(100px)}
 to { opacity: 1;
 transform: translateY(0px);
 }
 }
+
+ .continent-btn {
+            background: linear-gradient(145deg, #2d3047, #1b1e2b);
+            border: none;
+            border-radius: 15px;
+            padding: 30px 20px;
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+         /* Countries Display */
+        .countries-display {
+            background: rgba(30, 33, 58, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: none;
+        }
+
+        .countries-display.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .countries-title {
+            font-size: 2rem;
+            color: rgb(135, 0, 245);
+            margin-bottom: 25px;
+            text-align: center;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 10px;
+        }
+
+        .countries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .country-card {
+            background: rgba(45, 48, 71, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 1px solid rgba(111, 0, 255, 0.3);
+        }
+
+        .country-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(111, 0, 255, 0.3);
+            border-color: #fff;
+        }
+
+        .country-flag {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .country-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
